@@ -11,6 +11,10 @@ export default {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+        primary: 'var(--foreground)',
+        secondary: 'var(--secondary)',
+        muted: 'var(--muted)',
+        'muted-foreground': 'var(--muted-foreground)',
         border: 'var(--foreground)',
       },
     },

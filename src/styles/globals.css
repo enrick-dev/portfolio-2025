@@ -5,9 +5,13 @@
 @tailwind utilities;
 
 :root {
+  font-family: 'Poppins, monospace';
   --background: rgb(235, 235, 235);
   --foreground: #171717;
-  font-family: 'Poppins, monospace';
+  --primary: #171717;
+  --muted: #f0f0f0;
+  --muted-foreground: #6c6c6c;
+  --secondary: #f0f0f0;
 }
 
 @media (prefers-color-scheme: dark) {

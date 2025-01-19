@@ -1,6 +1,3 @@
-import React from 'react';
-import TextScramble from '../text-scramble';
-
 const items = [
   {
     name: 'Index',
@@ -29,7 +26,7 @@ const Navbar = ({ className }: NavbarProps) => {
       <ul className="flex gap-2">
         {items.map((item, index) => (
           <li key={index}>
-            <a href={item.href} className="font-medium ">
+            <a href={item.href} className="font-medium">
               {/* <TextScramble texts={item.name} /> */}
               {item.name}
 
