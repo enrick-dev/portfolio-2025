@@ -1,3 +1,5 @@
+import EncryptLink from '../encrypt-link';
+
 const items = [
   {
     name: 'Index',
@@ -25,13 +27,14 @@ const HeaderNav = ({ className }: HeaderNavProps) => {
     <nav className={className}>
       <ul className="flex gap-2">
         {items.map((item, index) => (
-          <li key={index}>
-            <a href={item.href} className="font-medium">
-              {item.name}
-
-              {index < items.length - 1 && ', '}
-            </a>
-          </li>
+          <EncryptLink key={index} href={item.href} className="font-medium">
+            {item.name + (index < items.length - 1 ? ', ' : '')}
+          </EncryptLink>
+          // <li key={index}>
+          //   <a href={item.href} className="font-medium">
+          //     {item.name + (index < items.length - 1 && ', ')}
+          //   </a>
+          // </li>
         ))}
       </ul>
     </nav>
