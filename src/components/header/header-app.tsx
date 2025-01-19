@@ -10,7 +10,7 @@ interface HeaderProps extends PropsWithChildren {
 const Header = ({ className }: HeaderProps) => {
   return (
     <header className={className}>
-      <div className="relative size-full px-20 py-10">
+      <div className="relative size-full px-20 py-10 max-md:px-7 max-md:py-8">
         <div
           className="absolute left-0 top-0 size-full bg-background"
           style={{
@@ -22,7 +22,7 @@ const Header = ({ className }: HeaderProps) => {
           <Link href="/">
             <Logo className="w-10" />
           </Link>
-          <HeaderNav className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
+          <HeaderNav className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 max-md:hidden" />
           <div>
             <button
               style={{ boxShadow: 'inset 0 0 15px rgba(0,0,0,0.3)' }}

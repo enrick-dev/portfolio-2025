@@ -1,3 +1,4 @@
+import { useIsMobile } from '@/utils/use-mobile';
 import { AnimatePresence, motion } from 'motion/react';
 import Image from 'next/image';
 import React from 'react';
@@ -37,30 +38,34 @@ const projects = [
 const SecProjects = () => {
   const [activeProject, setActiveProject] = React.useState<number | null>(2);
 
+  const isMobile = useIsMobile();
+
   const isActiveProject = (id: number) => {
     if (activeProject == id) return;
     setActiveProject(id);
   };
+
+  const isProjectActive = (id: number) => activeProject == id || isMobile;
   return (
-    <section className="flex w-full gap-20 px-20 py-28 max-md:px-7 max-md:py-14">
+    <section className="flex w-full gap-20 px-20 py-28 max-xl:gap-14 max-lg:gap-10 max-md:flex-col max-md:gap-7 max-md:px-7 max-md:py-8">
       {projects.map((project, index) => (
         <motion.article
           key={index}
-          initial={{ width: '22%' }}
+          initial={{ width: !isMobile ? '22%' : '100%' }}
           animate={{
-            ...(activeProject == project.id
-              ? { width: '56%' }
-              : { width: '22%' }),
+            width:
+              (!isMobile && (isProjectActive(project.id) ? '56%' : '22%')) ||
+              '100%',
           }}
         >
-          <figure className="relative space-y-5">
+          <figure className="relative space-y-5 max-md:space-y-2">
             <div
-              className={`relative flex h-[500] w-full items-center justify-center overflow-hidden rounded-lg px-5 transition-all ${project.background} cursor-pointer`}
+              className={`relative flex h-[500px] w-full items-center justify-center overflow-hidden rounded-lg px-5 transition-all max-xl:h-[400px] max-lg:h-[350px] max-md:h-[300px] ${project.background} cursor-pointer`}
               onMouseEnter={() => isActiveProject(project.id)}
               onMouseMove={() => isActiveProject(project.id)}
             >
               <AnimatePresence>
-                {activeProject == project.id && project.year ? (
+                {isProjectActive(project.id) && project.year ? (
                   <motion.span
                     {...{
                       initial: { opacity: 0 },
@@ -86,12 +91,12 @@ const SecProjects = () => {
                 />
               ) : (
                 <p className="text-muted text-center font-medium opacity-80">
-                  {activeProject == project.id ? project.description : ''}
+                  {isProjectActive(project.id) ? project.description : ''}
                 </p>
               )}
             </div>
             <AnimatePresence>
-              {activeProject == project.id && project.title ? (
+              {isProjectActive(project.id) && project.title ? (
                 <motion.figcaption
                   className="pointer-events-none flex items-center justify-between gap-3"
                   {...{
