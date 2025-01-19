@@ -9,13 +9,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: 'var(--background)',
-        foreground: 'var(--foreground)',
-        primary: 'var(--foreground)',
-        secondary: 'var(--secondary)',
-        muted: 'var(--muted)',
-        'muted-foreground': 'var(--muted-foreground)',
-        border: 'var(--foreground)',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        primary: 'hsl(var(--foreground))',
+        secondary: 'hsl(var(--secondary))',
+        muted: 'hsl(var(--muted))',
+        'muted-foreground': 'hsl(var(--muted-foreground))',
+        border: 'hsl(var(--foreground))',
       },
     },
   },

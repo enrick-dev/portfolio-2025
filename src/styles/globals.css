@@ -6,12 +6,12 @@
 
 :root {
   font-family: 'Poppins, monospace';
-  --background: rgb(235, 235, 235);
-  --foreground: #171717;
-  --primary: #171717;
-  --muted: #f0f0f0;
-  --muted-foreground: #6c6c6c;
-  --secondary: #f0f0f0;
+  --background: 0 0% 92.16%;
+  --foreground: 0 0% 9.02%;
+  --primary: 0 0% 9.02%;
+  --muted: 0 0% 94.12%;
+  --muted-foreground: 0 0% 42.35%;
+  --secondary: 0 0% 94.12%;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,7 +22,7 @@
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: hsl(var(--primary));
+  background: hsl(var(--background));
   font-family: Poppins, sans-serif;
 }

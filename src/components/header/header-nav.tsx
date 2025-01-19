@@ -17,17 +17,16 @@ const items = [
   },
 ];
 
-type NavbarProps = {
+type HeaderNavProps = {
   className?: string;
 };
-const Navbar = ({ className }: NavbarProps) => {
+const HeaderNav = ({ className }: HeaderNavProps) => {
   return (
     <nav className={className}>
       <ul className="flex gap-2">
         {items.map((item, index) => (
           <li key={index}>
             <a href={item.href} className="font-medium">
-              {/* <TextScramble texts={item.name} /> */}
               {item.name}
 
               {index < items.length - 1 && ', '}
@@ -39,4 +38,4 @@ const Navbar = ({ className }: NavbarProps) => {
   );
 };
 
-export default Navbar;
+export default HeaderNav;
