@@ -37,7 +37,7 @@ const Preloader: React.FC<PreloaderProps> = ({ children, className }) => {
   const perspective: Variants = {
     initial: {
       scale: 0.9,
-      opacity: 0.8,
+      opacity: 0.6,
       borderRadius: '0.75rem',
       pointerEvents: 'none',
     },
@@ -92,7 +92,7 @@ const Preloader: React.FC<PreloaderProps> = ({ children, className }) => {
           </div>
 
           <motion.div
-            className="absolute bottom-2 right-2 text-8xl max-md:text-4xl"
+            className="absolute bottom-12 right-12 text-8xl max-md:text-4xl"
             {...anim(opacity)}
           >
             <AnimatedCounter
