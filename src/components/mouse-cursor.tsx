@@ -5,7 +5,10 @@ const MouseCursor = ({
   styckyElement,
 }: PropsWithChildren<{ styckyElement: React.RefObject<HTMLDivElement> }>) => {
   const [isHovered, setIsHovered] = React.useState(false);
-  const cursorSize = isHovered ? 60 : 20;
+  const element = styckyElement.current;
+
+  const cursorSizeWidth = isHovered ? element.clientWidth : 20;
+  const cursorSizeHeight = isHovered ? element.clientHeight : 20;
   const mouse = {
     x: useMotionValue(0),
     y: useMotionValue(0),
@@ -22,11 +25,11 @@ const MouseCursor = ({
 
     const center = { x: left + width / 2, y: top + height / 2 };
     if (isHovered) {
-      mouse.x.set(center.x - cursorSize / 2);
-      mouse.y.set(center.y - cursorSize / 2);
+      mouse.x.set(center.x - cursorSizeWidth / 2);
+      mouse.y.set(center.y - cursorSizeHeight / 2);
     } else {
-      mouse.x.set(clientX - cursorSize / 2);
-      mouse.y.set(clientY - cursorSize / 2);
+      mouse.x.set(clientX - cursorSizeWidth / 2);
+      mouse.y.set(clientY - cursorSizeHeight / 2);
     }
   };
 
@@ -39,9 +42,6 @@ const MouseCursor = ({
   };
 
   React.useEffect(() => {
-    console.log('saddsa');
-    const element = styckyElement.current;
-
     window.addEventListener('mousemove', manageMouseMove);
     element?.addEventListener('mouseenter', manageMouseOver);
     element?.addEventListener('mouseleave', manageMouseLeave);
@@ -54,9 +54,9 @@ const MouseCursor = ({
 
   return (
     <motion.div
-      className="pointer-events-none absolute z-50 size-5 rounded-full bg-white mix-blend-difference"
+      className="pointer-events-none absolute z-50 size-5 cursor-pointer rounded-full bg-white mix-blend-difference"
       style={{ left: smothMouse.x, top: smothMouse.y }}
-      animate={{ width: cursorSize, height: cursorSize }}
+      animate={{ width: cursorSizeWidth, height: cursorSizeHeight }}
     ></motion.div>
   );
 };
