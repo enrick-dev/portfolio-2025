@@ -1,6 +1,7 @@
 import Logo from '@/assets/logo';
 import Link from 'next/link';
 import { PropsWithChildren } from 'react';
+import { FaArrowDown } from 'react-icons/fa';
 import HeaderNav from './header-nav';
 
 interface HeaderProps extends PropsWithChildren {
@@ -26,9 +27,12 @@ const Header = ({ className }: HeaderProps) => {
           <div>
             <button
               style={{ boxShadow: 'inset 0 0 15px rgba(0,0,0,0.3)' }}
-              className="rounded-3xl border-2 border-border px-5 py-2 font-medium"
+              className="stiky-element-hidden group relative rounded-3xl border-2 border-border bg-background px-5 py-2 font-medium transition-all duration-500 ease-out hover:bg-foreground hover:pr-12 hover:text-muted"
             >
-              Download CV
+              <span>Download CV</span>
+              <span className="absolute right-0.5 top-1/2 -translate-y-1/2 scale-0 rounded-full bg-yellow-300 p-2.5 opacity-0 transition-all duration-500 group-hover:scale-100 group-hover:opacity-100">
+                <FaArrowDown className="size-4 text-primary" />
+              </span>
             </button>
           </div>
         </div>

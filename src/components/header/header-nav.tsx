@@ -28,7 +28,7 @@ const HeaderNav = ({ className }: HeaderNavProps) => {
       <ul className="flex gap-2">
         {items.map((item, index) => (
           <EncryptLink key={index} href={item.href} className="font-medium">
-            {item.name + (index < items.length - 1 ? ', ' : '')}
+            {item.name + (index < items.length - 1 ? ',' : '')}
           </EncryptLink>
           // <li key={index}>
           //   <a href={item.href} className="font-medium">

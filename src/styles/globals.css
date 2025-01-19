@@ -26,3 +26,40 @@ body {
   background: hsl(var(--background));
   font-family: Poppins, sans-serif;
 }
+
+.bounds-2 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.bounds-2:hover {
+  transform: scale(2);
+}
+
+.bounds-3 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: scale(2);
+  left: 0;
+  top: 0;
+}
+
+.bounds-3:hover {
+  transform: scale(3.5);
+}
+
+.bounds-4 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: scale(3);
+  left: 0;
+  top: 0;
+}
+.bounds-3:hover {
+  transform: scale(4.5);
+}

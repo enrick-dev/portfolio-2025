@@ -1,6 +1,7 @@
 import { motion, TargetAndTransition } from 'motion/react';
 import React from 'react';
 import AnimatedCounter from './animated-counter';
+import EncryptText from './encrypt-text';
 
 interface PreloaderProps {
   children: React.ReactNode;
@@ -86,8 +87,8 @@ const Preloader: React.FC<PreloaderProps> = ({ children, className }) => {
       >
         <div className="relative flex size-full items-center justify-center">
           <div className="flex h-14 flex-col items-center gap-4 overflow-hidden text-5xl font-medium max-md:text-3xl">
-            <motion.p {...anim(maskText)}>Carregando</motion.p>
-            <motion.p {...anim(maskText)}>Seja bem vindo</motion.p>
+            <EncryptText {...anim(maskText)}>Carregando</EncryptText>
+            <EncryptText {...anim(maskText)}>Seja bem vindo</EncryptText>
           </div>
 
           <motion.div
@@ -107,7 +108,7 @@ const Preloader: React.FC<PreloaderProps> = ({ children, className }) => {
         {...anim(perspective)}
         className="h-dvh w-dvw overflow-y-scroll bg-background"
       >
-        <div className={` ${className} `}>{children}</div>
+        <div className={` ${className} overflow-hidden`}>{children}</div>
       </motion.div>
     </div>
   );

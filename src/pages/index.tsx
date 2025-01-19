@@ -3,17 +3,15 @@ import MouseCursor from '@/components/mouse-cursor';
 import Preloader from '@/components/preloader';
 import SecIndex from '@/components/sections/sec-index';
 import SecProjects from '@/components/sections/sec-projects';
-import { useRef } from 'react';
 
 export default function Home() {
-  const styckyElement = useRef<HTMLDivElement>(null!);
   return (
-    <div className="text-primary bg-foreground">
-      <MouseCursor styckyElement={styckyElement} />
+    <div className="relative">
+      <MouseCursor />
       <Preloader className="flex flex-col items-center">
-        <Header className="fixed top-0 z-10 w-full" />
-        <SecIndex ref={styckyElement} />
-        <hr className="bg-muted-foreground/20 h-0.5 w-full" />
+        <Header className="fixed top-0 z-20 w-full" />
+        <SecIndex />
+        <hr className="h-0.5 w-full bg-muted-foreground/20" />
         <SecProjects />
       </Preloader>
     </div>
