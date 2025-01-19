@@ -1,8 +1,13 @@
-import React from 'react';
 import { motion, TargetAndTransition } from 'motion/react';
+import React from 'react';
 import AnimatedCounter from './animated-counter';
 
-const Preloader = ({ children, className }) => {
+interface PreloaderProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+const Preloader: React.FC<PreloaderProps> = ({ children, className }) => {
   interface Variants {
     [key: string]: TargetAndTransition;
     initial: TargetAndTransition;
@@ -77,16 +82,16 @@ const Preloader = ({ children, className }) => {
     <div className="relative overflow-hidden">
       <motion.div
         {...anim(slide)}
-        className="absolute w-dvw h-dvh bg-foreground z-10 text-background "
+        className="absolute z-10 h-dvh w-dvw bg-foreground text-background"
       >
-        <div className="relative flex items-center justify-center size-full">
-          <div className="overflow-hidden flex flex-col gap-4 items-center h-14 text-5xl font-medium max-md:text-3xl">
+        <div className="relative flex size-full items-center justify-center">
+          <div className="flex h-14 flex-col items-center gap-4 overflow-hidden text-5xl font-medium max-md:text-3xl">
             <motion.p {...anim(maskText)}>Carregando</motion.p>
             <motion.p {...anim(maskText)}>Seja bem vindo</motion.p>
           </div>
 
           <motion.div
-            className="text-8xl absolute right-2 bottom-2 max-md:text-4xl"
+            className="absolute bottom-2 right-2 text-8xl max-md:text-4xl"
             {...anim(opacity)}
           >
             <AnimatedCounter
@@ -100,7 +105,7 @@ const Preloader = ({ children, className }) => {
       </motion.div>
       <motion.div
         {...anim(perspective)}
-        className="bg-background w-dvw h-dvh overflow-y-scroll"
+        className="h-dvh w-dvw overflow-y-scroll bg-background"
       >
         <div className={` ${className} `}>{children}</div>
       </motion.div>
