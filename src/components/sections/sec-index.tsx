@@ -1,3 +1,4 @@
+import Magnetic from '@/magnetic';
 import { FaArrowDown } from 'react-icons/fa';
 import EncryptText from '../encrypt-text';
 
@@ -19,13 +20,16 @@ const SecIndex = () => {
         <span>venha conhecer um pouco de mim</span>
       </h2>
       <article className="absolute bottom-0 flex w-full items-center justify-between px-20 py-10">
-        <div className="stiky-element-default relative flex cursor-pointer items-center gap-4 px-4 py-2 font-medium tracking-tight">
-          <span className="bounds-4"></span>
-          <div className="size-fit">
-            <FaArrowDown className="size-4" />
+        <Magnetic className="stiky-element-default">
+          <div className="relative flex cursor-pointer items-center gap-4 px-4 py-2 font-medium tracking-tight">
+            <span className="bounds-4"></span>
+            <div className="size-fit">
+              <FaArrowDown className="size-4" />
+            </div>
+            <span>Scroll para explorar</span>
           </div>
-          <span>Scroll para explorar</span>
-        </div>
+        </Magnetic>
+
         <p className="pointer-events-none font-medium">Projetos</p>
       </article>
     </section>

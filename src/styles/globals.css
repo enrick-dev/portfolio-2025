@@ -23,7 +23,7 @@
 
 body {
   color: hsl(var(--primary));
-  background: hsl(var(--background));
+  background: hsl(var(--foreground));
   font-family: Poppins, sans-serif;
 }
 
