@@ -21,6 +21,24 @@
   } */
 }
 
+::-webkit-scrollbar {
+  width: 6px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 40px 5px;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--foreground));
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 body {
   color: hsl(var(--primary));
   background: hsl(var(--foreground));

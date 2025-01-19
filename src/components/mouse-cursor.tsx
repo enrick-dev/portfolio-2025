@@ -23,6 +23,7 @@ const MouseCursor = () => {
   const [isHovered, setIsHovered] = React.useState(false);
   const defaultCursorSize: CursorSizeType = { width: 15, height: 15 };
   const [cursorSize, setCursorSize] = React.useState(defaultCursorSize);
+  const [text, setText] = React.useState(' ');
 
   const isMobile = useIsMobile();
 
@@ -64,6 +65,7 @@ const MouseCursor = () => {
     if (newElement != null) {
       const cursorWidthAttribute = newElement.getAttribute('cursor-width');
       const cursorHeightAttribute = newElement.getAttribute('cursor-height');
+      const cursorTextAttribute = newElement.getAttribute('cursor-text');
 
       const width = cursorWidthAttribute
         ? parseInt(cursorWidthAttribute)
@@ -78,6 +80,11 @@ const MouseCursor = () => {
           width,
           height,
         });
+        if (cursorTextAttribute) {
+          setText(cursorTextAttribute);
+        } else {
+          setText('');
+        }
       }
 
       if (StikyElementType == 'stiky-element-move') {
@@ -87,6 +94,11 @@ const MouseCursor = () => {
           height: cursorHeightAttribute ? parseInt(cursorHeightAttribute) : 500,
           move: true,
         });
+        if (cursorTextAttribute) {
+          setText(cursorTextAttribute);
+        } else {
+          setText('');
+        }
       }
     }
 
@@ -103,6 +115,7 @@ const MouseCursor = () => {
   const manageMouseLeave = (newElement: HTMLElement) => {
     setIsHovered(false);
     element.current = newElement;
+    setText('');
     setCursorSize(defaultCursorSize);
   };
 
@@ -186,7 +199,7 @@ const MouseCursor = () => {
     <AnimatePresence>
       {!cursorSize.hidden && !isMobile ? (
         <motion.div
-          className="pointer-events-none absolute z-50 size-5 cursor-pointer rounded-full bg-white mix-blend-difference"
+          className="pointer-events-none absolute z-50 size-5 cursor-pointer rounded-full bg-background text-foreground mix-blend-difference"
           style={{ left: smothMouse.x, top: smothMouse.y }}
           initial={{
             width: 40,
@@ -207,7 +220,9 @@ const MouseCursor = () => {
             filter: 'blur(10px)',
             transition: { duration: 0.5 },
           }}
-        ></motion.div>
+        >
+          {text}
+        </motion.div>
       ) : null}
     </AnimatePresence>
   );

@@ -12,7 +12,12 @@ interface EncryptLinkProps extends PropsWithChildren {
   className?: string;
 }
 
-const EncryptLink = ({ children, href = '', className }: EncryptLinkProps) => {
+const EncryptLink = ({
+  children,
+  href = '',
+  className,
+  ...props
+}: EncryptLinkProps) => {
   const intervalRef = React.useRef<ReturnType<typeof setInterval> | null>(null);
 
   const [text, setText] = React.useState(children);
@@ -56,6 +61,7 @@ const EncryptLink = ({ children, href = '', className }: EncryptLinkProps) => {
       className={`font-mono tracking-tighter ${className}`}
       onMouseEnter={scramble}
       onMouseLeave={stopScramble}
+      {...props}
     >
       {text}
     </Link>
