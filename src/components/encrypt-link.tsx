@@ -1,10 +1,6 @@
 import Link from 'next/link';
 import React, { PropsWithChildren } from 'react';
 
-const DURATION = 0.25;
-const STAGGER = 0.025;
-
-const TARGET_TEXT = 'Encrypt data';
 const CYCLES_PER_LETTER = 1;
 const SHUFFLE_TIME = 35;
 
