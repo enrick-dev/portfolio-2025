@@ -20,7 +20,7 @@ const SecIndex = () => {
         <span>venha conhecer um pouco de mim</span>
       </h2>
       <article className="absolute bottom-0 flex w-full items-center justify-between px-20 py-10 max-md:px-7 max-md:py-8 max-md:text-sm">
-        <Magnetic className="stiky-element-default">
+        <Magnetic className="stiky-element-hidden">
           <div className="relative flex cursor-pointer items-center gap-4 px-4 py-2 font-medium tracking-tight">
             <span className="bounds-4"></span>
             <div className="size-fit">

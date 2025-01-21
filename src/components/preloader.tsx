@@ -26,10 +26,28 @@ const Preloader: React.FC<PreloaderProps> = ({ children, className }) => {
   });
 
   const slide: Variants = {
-    initial: { translateY: 0 },
+    initial: { translateY: 0, scale: 1, opacity: 1 },
     enter: {
-      translateY: '100dvh',
-      transition: { duration: 0.5, delay: delay, ease: [0.33, 1, 0.68, 1] },
+      scale: 0.9,
+      translateX: '100dvw',
+      borderRadius: '0.75rem',
+      opacity: 0.6,
+      display: 'none',
+      transition: {
+        duration: 0.5,
+        delay: delay,
+        ease: [0.33, 1, 0.68, 1],
+        translateX: {
+          duration: 0.6,
+          delay: delay + 1,
+          ease: [0.33, 1, 0.68, 1],
+        },
+        display: {
+          duration: 0.6,
+          delay: delay + 1.2,
+          ease: [0.33, 1, 0.68, 1],
+        },
+      },
     },
     exit: {},
   };
@@ -40,13 +58,53 @@ const Preloader: React.FC<PreloaderProps> = ({ children, className }) => {
       opacity: 0.6,
       borderRadius: '0.75rem',
       pointerEvents: 'none',
+      // height: '100dvh',
+      overflow: 'hidden',
+      translateX: '-100dvw',
     },
     enter: {
       scale: 1,
       opacity: 1,
       borderRadius: 0,
       pointerEvents: 'auto',
-      transition: { duration: 0.6, delay: delay + 1, ease: [0.33, 1, 0.68, 1] },
+      translateX: 0,
+      overflow: 'auto',
+      // height: 'initial',
+      transition: {
+        delay: delay + 2,
+        ease: [0.33, 1, 0.68, 1],
+        translateX: {
+          duration: 0.6,
+          delay: delay + 1,
+          ease: [0.33, 1, 0.68, 1],
+        },
+        scale: {
+          duration: 0.6,
+          delay: delay + 1 + 2,
+          ease: [0.33, 1, 0.68, 1],
+        },
+        height: {
+          duration: 0.6,
+          delay: delay + 1 + 3,
+          ease: [0.33, 1, 0.68, 1],
+        },
+        borderRadius: {
+          duration: 0.6,
+          delay: delay + 1 + 3,
+          ease: [0.33, 1, 0.68, 1],
+        },
+        overflow: {
+          duration: 0.6,
+          delay: delay + 1 + 3,
+          ease: [0.33, 1, 0.68, 1],
+        },
+
+        opacity: {
+          duration: 0.6,
+          delay: delay + 1 + 2,
+          ease: [0.33, 1, 0.68, 1],
+        },
+      },
     },
     exit: {},
   };
@@ -80,10 +138,10 @@ const Preloader: React.FC<PreloaderProps> = ({ children, className }) => {
   };
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative">
       <motion.div
         {...anim(slide)}
-        className="absolute z-10 h-dvh w-dvw bg-foreground text-background"
+        className="absolute z-10 h-dvh w-dvw bg-background text-primary"
       >
         <div className="relative flex size-full items-center justify-center">
           <div className="flex h-14 flex-col items-center gap-4 overflow-hidden text-5xl font-medium max-md:text-3xl">
@@ -104,6 +162,7 @@ const Preloader: React.FC<PreloaderProps> = ({ children, className }) => {
           </motion.div>
         </div>
       </motion.div>
+
       <motion.div
         {...anim(perspective)}
         className="h-dvh w-dvw overflow-y-scroll bg-background"
