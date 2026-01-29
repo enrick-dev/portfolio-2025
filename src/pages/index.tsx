@@ -1,6 +1,7 @@
 import Header from '@/components/header/header-app';
 import MouseCursor from '@/components/mouse-cursor';
 import Preloader from '@/components/preloader';
+import SecAbout from '@/components/sections/sec-about';
 import SecIndex from '@/components/sections/sec-index';
 import SecProjects from '@/components/sections/sec-projects';
 
@@ -15,6 +16,8 @@ export default function Home() {
         <SecIndex />
         <hr className="h-0.5 w-full bg-muted-foreground/20" />
         <SecProjects />
+        <hr className="h-0.5 w-full bg-muted-foreground/20" />
+        <SecAbout />
       </Preloader>
     </div>
   );
