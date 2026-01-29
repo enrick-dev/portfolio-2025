@@ -78,6 +78,17 @@ body {
   left: 0;
   top: 0;
 }
-.bounds-3:hover {
+.bounds-4:hover {
   transform: scale(4.5);
+}
+
+/* Scroll anchor offset for fixed header */
+[id] {
+  scroll-margin-top: 100px;
+}
+
+/* Contact form autofill styles (dark background) */
+.contact-input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px hsl(var(--foreground)) inset;
+  -webkit-text-fill-color: hsl(var(--background));
 }

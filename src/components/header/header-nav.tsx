@@ -12,12 +12,10 @@ const items = [
   {
     name: 'Sobre mim',
     href: '#about',
-    blocked: true,
   },
   {
     name: 'Me contate',
     href: '#contact',
-    blocked: true,
   },
 ];
 
@@ -31,8 +29,8 @@ const HeaderNav = ({ className }: HeaderNavProps) => {
         {items.map((item, index) => (
           <EncryptLink
             key={index}
-            href={!item.blocked ? item.href : ''}
-            className={`stiky-element-default px-2 font-medium ${item.blocked ? 'cursor-not-allowed text-muted-foreground' : 'text-primary'}`}
+            href={item.href}
+            className="stiky-element-default px-2 font-medium text-primary"
           >
             {item.name + (index < items.length - 1 ? ',' : '')}
           </EncryptLink>
