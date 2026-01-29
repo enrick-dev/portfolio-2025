@@ -10,15 +10,19 @@ import {
   SiFigma,
   SiGit,
   SiMongodb,
+  SiNestjs,
   SiNextdotjs,
   SiNodedotjs,
   SiPostgresql,
-  SiPython,
   SiReact,
+  SiRedis,
+  SiRedux,
+  SiServerless,
   SiTailwindcss,
   SiTypescript,
 } from 'react-icons/si';
 import { FaAws } from 'react-icons/fa';
+import { TbLambda, TbStack2 } from 'react-icons/tb';
 
 type Skill = {
   name: string;
@@ -28,25 +32,31 @@ type Skill = {
 
 const skills: Skill[] = [
   { name: 'React', icon: SiReact, hoverBg: 'rgba(6,182,212,0.1)' },
+  { name: 'React Native', icon: SiReact, hoverBg: 'rgba(6,182,212,0.1)' },
   { name: 'Next.js', icon: SiNextdotjs, hoverBg: 'rgba(23,23,23,0.1)' },
   { name: 'TypeScript', icon: SiTypescript, hoverBg: 'rgba(37,99,235,0.1)' },
   { name: 'Node.js', icon: SiNodedotjs, hoverBg: 'rgba(22,163,74,0.1)' },
+  { name: 'NestJS', icon: SiNestjs, hoverBg: 'rgba(234,46,73,0.1)' },
+  { name: 'Redux', icon: SiRedux, hoverBg: 'rgba(118,74,188,0.1)' },
   {
     name: 'Tailwind CSS',
     icon: SiTailwindcss,
     hoverBg: 'rgba(20,184,166,0.1)',
   },
   { name: 'PostgreSQL', icon: SiPostgresql, hoverBg: 'rgba(30,64,175,0.1)' },
+  { name: 'Redis', icon: SiRedis, hoverBg: 'rgba(220,38,38,0.1)' },
+  { name: 'MongoDB', icon: SiMongodb, hoverBg: 'rgba(21,128,61,0.1)' },
   { name: 'Docker', icon: SiDocker, hoverBg: 'rgba(59,130,246,0.1)' },
+  { name: 'AWS', icon: FaAws, hoverBg: 'rgba(251,146,60,0.1)' },
+  { name: 'Lambda', icon: TbLambda, hoverBg: 'rgba(251,146,60,0.1)' },
+  { name: 'SQS / Filas', icon: TbStack2, hoverBg: 'rgba(251,146,60,0.1)' },
+  { name: 'Serverless', icon: SiServerless, hoverBg: 'rgba(253,63,52,0.1)' },
   { name: 'Git', icon: SiGit, hoverBg: 'rgba(234,88,12,0.1)' },
   { name: 'Figma', icon: SiFigma, hoverBg: 'rgba(168,85,247,0.1)' },
-  { name: 'Python', icon: SiPython, hoverBg: 'rgba(234,179,8,0.1)' },
-  { name: 'MongoDB', icon: SiMongodb, hoverBg: 'rgba(21,128,61,0.1)' },
-  { name: 'AWS', icon: FaAws, hoverBg: 'rgba(251,146,60,0.1)' },
 ];
 
-const firstRow = skills.slice(0, 6);
-const secondRow = skills.slice(6);
+const firstRow = skills.slice(0, 9);
+const secondRow = skills.slice(9);
 
 const MarqueeItem = ({ skill }: { skill: Skill }) => {
   const Icon = skill.icon;

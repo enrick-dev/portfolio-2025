@@ -4,8 +4,8 @@ import { useInViewAnimation } from '@/hooks/use-in-view-animation';
 import { motion } from 'motion/react';
 
 const stats = [
-  { value: 2, suffix: '+', label: 'anos de experiência' },
-  { value: 15, suffix: '+', label: 'projetos concluídos' },
+  { value: 3, suffix: '+', label: 'anos de experiência' },
+  // { value: 15, suffix: '+', label: 'projetos concluídos' },
   { value: 10, suffix: '+', label: 'tecnologias dominadas' },
 ];
 
