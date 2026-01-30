@@ -10,7 +10,6 @@ type Role = {
 
 type Experience = {
   company: string;
-  initianteDate: Date;
   type: string;
   location: string;
   roles: Role[];
@@ -25,13 +24,12 @@ const experiences: Experience[] = [
       {
         title: 'Desenvolvedor Full Stack Pleno',
         period: 'mar 2025 — presente',
-        initianteDate: new Date("2025-02-01"),
         description: [
           'Contribuo no desenvolvimento da bilheteria MASP com AWS Lambda e Serverless Framework',
           'Adição de soluções de cache com Redis como Rate Limiter, filas com SQS e Lambda, banco de dados PostgreSQL e gestão de usuários com Cognito',
           'Aplicativo de checkin com React Native CLI, filas offiline com sqlite, geração de bundles e lançamento na Google Play Store',
           "Criação de login com Whatsapp Business API (API oficial)",
-          "Manutenção de pinpad integrado a maquininha do Itaú e integrado ao sistema do MASP"
+          "Manutenção de pinpad (maquininha de pagamentos do Itaú) e integrado ao sistema do MASP"
         ],
       },
     ],
@@ -40,7 +38,6 @@ const experiences: Experience[] = [
     company: 'Corelab',
     type: 'Autônomo',
     location: 'Remota',
-    initianteDate: new Date("2025-08-01"),
     roles: [
       {
         title: 'Desenvolvedor Full Stack Pleno',
@@ -57,7 +54,6 @@ const experiences: Experience[] = [
     company: 'Make Acelerador de Vendas',
     type: 'Tempo integral',
     location: 'São Bernardo do Campo, SP · Presencial',
-    initianteDate: new Date("2024-01-01"),
     roles: [
       {
         title: 'Desenvolvedor Full Stack Pleno',
@@ -84,7 +80,6 @@ const experiences: Experience[] = [
     company: 'Autônomo',
     type: 'Freelancer',
     location: 'Remota',
-    initianteDate: new Date("2023-01-01"),
     roles: [
       {
         title: 'Desenvolvedor Full Stack Junior',
@@ -97,23 +92,6 @@ const experiences: Experience[] = [
     ],
   },
 ];
-
-const calculateExperience = (initianteDate?: Date) => {
-  if (!initianteDate) {
-    return "";
-  }
-  const currentDate = new Date();
-  const experience = currentDate.getFullYear() - initianteDate.getFullYear() + " anos";
-  if (experience === "0 anos") {
-    const months = currentDate.getMonth() - initianteDate.getMonth();
-    if (months === 0) {
-      return "1 mês";
-    }
-    return months + " meses";
-  }
-
-  return experience;
-};
 
 const SecExperience = () => {
   const { ref: sectionRef, isInView } = useInViewAnimation({ amount: 0.1 });
