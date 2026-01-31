@@ -82,7 +82,7 @@ const SecAbout = () => {
           {stats.map((stat, index) => (
             <motion.div
               key={index}
-              className="stiky-element-default relative cursor-default"
+              className="stiky-element-default relative cursor-default w-fit"
               initial={{ opacity: 0, y: 50 }}
               animate={statsInView ? { opacity: 1, y: 0 } : {}}
               transition={{

@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/enricksantosdesouza/Desktop/Programação/Projetos/portfolio-2025/**)",
+      "Bash(npm run build:*)"
+    ]
+  }
+}

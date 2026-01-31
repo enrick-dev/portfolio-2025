@@ -73,7 +73,6 @@ const SkillCard = ({ skill }: { skill: Skill }) => {
   const [isHovered, setIsHovered] = React.useState(false);
 
   return (
-    <Magnetic className="stiky-element-default">
       <motion.div
         className="relative flex cursor-default flex-col items-center justify-center gap-3 rounded-lg border border-muted-foreground/20 px-6 py-8 max-md:px-4 max-md:py-6"
         animate={{
@@ -97,7 +96,6 @@ const SkillCard = ({ skill }: { skill: Skill }) => {
           {skill.name}
         </EncryptText>
       </motion.div>
-    </Magnetic>
   );
 };
 

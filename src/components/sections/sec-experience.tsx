@@ -144,7 +144,7 @@ const ExperienceCard = ({
     >
       <div className="flex gap-20 max-lg:gap-10 max-md:flex-col max-md:gap-4">
         <div className="w-[35%] shrink-0 max-md:w-full">
-          <h3 className="stiky-element-default relative text-3xl font-semibold tracking-tight max-lg:text-2xl max-md:text-xl">
+          <h3 className="stiky-element-default relative text-3xl font-semibold tracking-tight max-lg:text-2xl max-md:text-xl w-fit">
             <span className="bounds-3"></span>
             <EncryptText>{experience.company}</EncryptText>
           </h3>

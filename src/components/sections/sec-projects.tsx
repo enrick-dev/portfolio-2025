@@ -6,13 +6,13 @@ import React from 'react';
 const projects = [
   {
     id: 1,
-    title: 'Em breve',
-    description: 'Em breve será adicionado um projeto aqui',
-    tag: '',
+    title: 'Dheme UI',
+    description: 'Gerador de temas para interfaces',
+    tag: 'API para geração de temas',
     year: '2025',
-    image: '',
-    link: '',
-    background: 'bg-yellow-700',
+    image: '/Project1.jpg',
+    link: 'https://www.dheme.com/pt',
+    classname: 'border border-muted-foreground/20',
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const projects = [
     year: '',
     image: '',
     link: '',
-    background: 'bg-red-700',
+    classname: 'bg-red-700',
   },
   {
     id: 3,
@@ -32,11 +32,11 @@ const projects = [
     year: '',
     image: '',
     link: '',
-    background: 'bg-purple-700',
+    classname: 'bg-purple-700',
   },
 ];
 const SecProjects = () => {
-  const [activeProject, setActiveProject] = React.useState<number | null>(2);
+  const [activeProject, setActiveProject] = React.useState<number | null>(1);
 
   const isMobile = useIsMobile();
 
@@ -58,9 +58,9 @@ const SecProjects = () => {
               '100%',
           }}
         >
-          <figure className="relative space-y-5 max-md:space-y-2">
+          <figure className="relative space-y-5 max-md:space-y-2 ">
             <div
-              className={`relative flex h-[500px] w-full items-center justify-center overflow-hidden rounded-lg px-5 transition-all max-xl:h-[400px] max-lg:h-[350px] max-md:h-[300px] ${project.background} cursor-pointer`}
+              className={`relative flex h-[500px] w-full items-center justify-center overflow-hidden rounded-lg px-5 transition-all max-xl:h-[400px] max-lg:h-[350px] max-md:h-[300px] ${project.classname} cursor-pointer overflow-hidden`}
               onMouseEnter={() => isActiveProject(project.id)}
               onMouseMove={() => isActiveProject(project.id)}
             >
@@ -87,7 +87,8 @@ const SecProjects = () => {
                 <Image
                   src={project.image}
                   alt={project.title}
-                  className="size-full"
+                  fill
+                  className="object-cover object-top w-full"
                 />
               ) : (
                 <p className="text-muted text-center font-medium opacity-80">
@@ -111,7 +112,18 @@ const SecProjects = () => {
                   }}
                 >
                   <h3 className="text-xl font-semibold tracking-tight">
-                    {project.title}
+                    {project.link ? (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="pointer-events-auto"
+                      >
+                        {project.title}
+                      </a>
+                    ) : (
+                      project.title
+                    )}
                   </h3>
                   <span className="text-sm font-medium">{project.tag}</span>
                 </motion.figcaption>

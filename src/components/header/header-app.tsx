@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { PropsWithChildren } from 'react';
 import { FaArrowDown } from 'react-icons/fa';
 import HeaderNav from './header-nav';
+import MobileMenu from './mobile-menu';
 
 interface HeaderProps extends PropsWithChildren {
   className?: string;
@@ -25,7 +26,7 @@ const Header = ({ className }: HeaderProps) => {
             <Logo className="w-10" />
           </Link>
           <HeaderNav className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 max-md:hidden" />
-          <div>
+          <div className="max-md:hidden">
             <Magnetic>
               <a
                 href="/enrick_santos_fullstack_pleno.pdf"
@@ -42,6 +43,7 @@ const Header = ({ className }: HeaderProps) => {
               </a>
             </Magnetic>
           </div>
+          <MobileMenu />
         </div>
       </div>
     </header>
